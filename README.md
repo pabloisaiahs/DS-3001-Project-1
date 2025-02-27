@@ -5,7 +5,13 @@
 For this project, I've decided to work on a dataset from Kaggle that scraped reviews off of Steam. There are 23 columns and the data is extensive, resulting in a file size of about 8GB. My **goal for the 01 submission** of this project is to truncate the data into more readable columns and getting basic sentiment data.
 
 The process goes as follows. 'clean_and_tokenize_data.ipynb' gets the raw truncated data 'truncated_data', cleans and tokenizes it for the sentiment. Then the R script 'sentiment_analysis.R' turns it into a CSV 'sentiment_analysis_results.csv' which I later plan to combine back into one sheet.
+
 https://www.kaggle.com/datasets/najzeko/steam-reviews-2021/data
+
+![image](https://github.com/user-attachments/assets/5dd091d6-850e-48a4-bbb8-7ca2930d73e0)
+
+![image](https://github.com/user-attachments/assets/34be171d-6256-4108-ad82-15b7bec3e9fc)
+
 
 ##### A good submission will clearly address three questions:
 
