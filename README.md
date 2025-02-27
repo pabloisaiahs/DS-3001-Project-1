@@ -2,8 +2,9 @@
 ## 01: Project Wrangling/EDA
 #### The data are available, but a major part of the project is getting them cleaned: Perhaps it's voting data from many sources covering many counties or precincts. Your submission will focus on some basic features of the data and your cleaning plan.
 
-For this project, I've decided to work on a dataset from Kaggle that scraped reviews off of Steam. There are 23 columns and the data is extensive, resulting in a file size of about 8GB. My **goal for the 01 submission** of this project is to truncate the data into more readable columns and getting the basic sentiment data through R.
+For this project, I've decided to work on a dataset from Kaggle that scraped reviews off of Steam. There are 23 columns and the data is extensive, resulting in a file size of about 8GB. My **goal for the 01 submission** of this project is to truncate the data into more readable columns and getting basic sentiment data.
 
+The process goes as follows. 'clean_and_tokenize_data.ipynb' gets the raw truncated data 'truncated_data', cleans and tokenizes it for the sentiment. Then the R script 'sentiment_analysis.R' turns it into a CSV 'sentiment_analysis_results.csv' which I later plan to combine back into one sheet.
 https://www.kaggle.com/datasets/najzeko/steam-reviews-2021/data
 
 ##### A good submission will clearly address three questions:
