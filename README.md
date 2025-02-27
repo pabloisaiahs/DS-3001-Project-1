@@ -27,3 +27,4 @@ https://www.kaggle.com/datasets/najzeko/steam-reviews-2021/data
     
 3. What are the challenges you've resolved or expect to face in using them?
 - The size of the data can be concerning, also truncating it to just English will result in overall accuracy.
+- Using multiple languages can be a bit messy, I plan to work in python on cleaning the data and get some basic work done for the sentiment analysis and put it all into one table.
