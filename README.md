@@ -36,3 +36,66 @@ https://www.kaggle.com/datasets/najzeko/steam-reviews-2021/data
 3. What are the challenges you've resolved or expect to face in using them?
 - The size of the data can be concerning, also truncating it to just English will result in overall accuracy.
 - Using multiple languages can be a bit messy, I plan to work in python on cleaning the data and get some basic work done for the sentiment analysis and put it all into one table.
+
+## 02: Establish Data & Register Analysis Plan
+
+##### Research Question
+How do individual gameplay elements influence the sentiment of Steam reviews, and to what extent can review sentiment be used to predict overall game recommendation ratings?
+
+##### Observation Unit
+Each observation in our dataset is a single English-language Steam review that includes:
+- Full text of the review
+- Binary recommendation score (0 = not recommended, 1 = recommended)
+- Sentiment score derived from BERT and R (syuzhet)
+- Named entities extracted as gameplay elements (e.g., story, graphics)
+
+##### Modeling Type
+I'm conducting a supervised learning task, using:
+- Binary classification to predict game recommendation (review_score)
+- Hypothesis testing to evaluate the association between review sentiment and review ratings
+- Exploratory analysis with elements of unsupervised learning (NER and sentiment extraction)
+
+##### Models and Methods
+1. Sentiment Analysis (Text Modeling)
+- Pre-trained BERT or RoBERTa for sentiment classification on review text
+- Rule-based sentiment using syuzhet in R for comparison and validation
+2. Named Entity Recognition (NER)
+- Use spaCy to identify gameplay-related terms
+- Label detected terms under categories like Story, Graphics, Multiplayer, etc.
+Append sentiment scores to these elements
+3. Statistical Hypothesis Testing
+- One-sample t-tests:
+  - H0: Mean sentiment score for positive reviews ≤ neutral score
+  - H1: Mean sentiment score for positive reviews > neutral score
+- Two-sample t-tests:
+  - Compare reviews with vs. without certain gameplay elements
+4. Predictive Modeling
+- Logistic Regression
+- Random Forest
+
+##### Feature Engineering
+- One-hot encoding for genre/platform data
+- Sentiment scores from two models (R and BERT)
+- Binary presence flags for gameplay terms
+- Normalized helpfulness scores
+
+##### Success Metrics
+- Accuracy, F1 Score, Precision, Recall, and ROC AUC for classification
+- P-values from t-tests for statistically significant relationships
+- Qualitative insights from review examples and visualizations
+
+    | Challenge | Solution |
+    | :--- | ---: |
+    | Playtime missing from dataset | Limit scope to review sentiment + NER until enriched dataset is acquired |
+    | Sarcasm or slang in reviews | Rely on transformer models like BERT to handle nuanced language |
+    | NER ambiguity | Curate and refine a set of target gameplay keywords manually |
+    | Overfitting on high-dimensional sentiment features | Apply regularization (L1/L2) and reduce dimensionality |
+    | Large dataset (~2M reviews) | Sample subsets for faster iteration; move to full set after testing |
+
+##### Results and Presentation
+- Confusion matrices, classification reports, and ROC curves for model evaluation
+- Word clouds, box plots, and bar charts for visual insights
+- Tables of t-test results showing significance of gameplay elements
+- Merged sentiment + gameplay visualizations (e.g., heatmaps or network graphs)
+
+
